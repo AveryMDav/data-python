@@ -12,15 +12,25 @@ for line in open_file:
 
 print(cupcake_types)
 
+open_file.seek(0,0)
+
 total_invoice = []
 
-open_file.seek(0,0)
+
 
 for line in open_file:
     line = line.strip()
     values = line.split(',')
-    num_cupcakes = values[3]
-    amount_cupcakes = values[4]
-    total_invoice.append(num_cupcakes * amount_cupcakes)
+    num_cupcakes = int(values[3])
+    amount_cupcakes = float(values[4])
+    total_invoice.append(amount_cupcakes * num_cupcakes)
     
-print(total_invoice)
+print (total_invoice)
+    
+full_total = sum(total_invoice)
+
+print(full_total)
+
+
+
+open_file.close()
